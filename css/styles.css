@@ -421,7 +421,7 @@ max-width: 1440px;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 250ms ease, visibility 250ms ease;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-overlay.is-open {
@@ -463,15 +463,16 @@ max-width: 1440px;
     background-color: #e7e9fc;
     cursor: pointer;
     padding: 0;
-    transition: background-color 250ms ease, border 250ms ease, color 250ms ease;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .modal-close-btn:hover,
 .modal-close-btn:focus {
     background-color: #404bbf;
     border: none;
     color: #ffffff;
 }
+
+
 .form-field {
     display: flex;
     flex-direction: column;
@@ -500,7 +501,7 @@ max-width: 1440px;
     border-radius: 4px;
     resize: none;
     outline: none;
-    transition: border-color 250ms ease;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-textarea::placeholder {
@@ -518,8 +519,42 @@ max-width: 1440px;
 }
 
 .checkbox-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.checkbox-icon {
     width: 16px;
     height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox-input:checked+.checkbox-icon {
+    background-color: #404bbf;
+    border-color: #404bbf;
+}
+
+.checkbox-input:checked+.checkbox-icon .checkbox-svg {
+    opacity: 1;
+}
+
+.checkbox-svg {
+    fill: #f4f4fd;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox-text {
@@ -546,7 +581,7 @@ max-width: 1440px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 250ms ease, box-shadow 250ms ease;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn:hover,
@@ -567,7 +602,7 @@ max-width: 1440px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
     outline: none;
-    transition: border-color 250ms ease;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-icon {
@@ -588,7 +623,6 @@ max-width: 1440px;
 }
 .subscribe {
     margin-left: auto;
-    /* якщо футер flex */
 }
 
 .subscribe-title {
@@ -612,6 +646,7 @@ max-width: 1440px;
     border: 1px solid #ffffff;
     border-radius: 4px;
     outline: none;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subscribe-input::placeholder {
@@ -631,12 +666,15 @@ max-width: 1440px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 250ms ease;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subscribe-btn:hover,
 .subscribe-btn:focus {
-    background-color: #404bbf;
+    background-color: #31d0aa;
+}
+.subscribe-input:focus {
+    border-color: #31d0aa;
 }
 
 .subscribe-icon {
